@@ -1,0 +1,4 @@
+Owner should have many puppies
+Puppies should have many toys
+Puppies belong to an owner
+Toys belong to a puppy

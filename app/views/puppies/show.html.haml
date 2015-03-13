@@ -1,0 +1,31 @@
+= @puppy.name
+
+= form_for([@puppy, @toy]) do |f|
+
+  = f.label :name
+  = f.text_field :name
+
+  = f.submit
+
+%ul
+-@puppy.toys.each do |toy|
+  %li=toy.name
+
+%br
+%br
+
+
+
+= form_for([@puppy, @appointment]) do |f|
+
+  = f.label :vet_id, "Vet Name"
+  = f.collection_select(:vet_id, Vet.all, :id, :name)
+
+  = f.label :time
+  = f.time_select :time
+
+  = f.submit
+
+%ul
+- @puppy.appointments.each do |appointment|
+  %li= "#{appointment.time.strftime("%m-%d-%Y")} with #{appointment.vet.name}"
